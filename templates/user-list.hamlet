@@ -1,3 +1,4 @@
 <ul>
-  $forall user <- users
-    <li>#{userIdent $ entityVal user}
+  $forall Entity userId user <- users
+    <li>
+      <a href=@{UserR userId}>#{userIdent user}

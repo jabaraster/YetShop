@@ -10,15 +10,10 @@ getUserCreateR = do
   defaultLayout $ $(widgetFile "user-create")
 
 postUserCreateR :: Handler Html
-postUserCreateR = undefined
-
-userForm :: Form (Text, Text)
-userForm = userForm' Nothing
-
-userForm' :: Maybe (Text, Text) -> Form (Text, Text)
--- userForm' = undefined
-{--
-    --}
-userForm' t = renderDivs $ (,)
-    <$> areq textField "Ident"    (fst <$> t)
-    <*> areq textField "Password" Nothing
+postUserCreateR = do
+  ((formResult, formWidget), formEnctype) <- runFormPost userForm
+  case formResult of
+    FormSuccess (ident, password) -> do
+             _ <- runDB $ insert $ User ident (Just password)
+             defaultLayout $ $(widgetFile "user-create")
+    _ -> defaultLayout $ $(widgetFile "user-create")
