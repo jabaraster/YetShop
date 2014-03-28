@@ -1,1 +1,3 @@
-PetShop_by_Yesod
+YetShop
+=======
+Yesodによるペットショップアプリケーションです.

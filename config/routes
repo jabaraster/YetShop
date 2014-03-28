@@ -5,3 +5,7 @@
 /robots.txt RobotsR GET
 
 / HomeR GET POST
+
+/users        UserIndexR  GET
+/user         UserCreateR GET POST
+/user/#UserId UserR       GET POST
