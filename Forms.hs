@@ -4,12 +4,13 @@ import Prelude
 import Yesod hiding (Route(..))
 import Foundation
 import Control.Applicative ((<$>), (<*>))
-import Data.Text (Text)
+import Model
+import Yesod.Form.Bootstrap3
 
-userForm :: Form (Text, Text)
+userForm :: Form User
 userForm = userForm' Nothing
 
-userForm' :: Maybe (Text, Text) -> Form (Text, Text)
-userForm' t = renderDivs $ (,)
-    <$> areq textField "Ident"    (fst <$> t)
-    <*> areq passwordField "Password" Nothing
+userForm' :: Maybe User -> Form User
+userForm' mUser = renderBootstrap $ User
+    <$> areq textField     "Ident"    (userIdent    <$> mUser)
+    <*> aopt passwordField "Password" (userPassword <$> mUser)

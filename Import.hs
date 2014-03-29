@@ -1,6 +1,7 @@
 module Import
     ( module Import
       , module Forms
+      , module Widgets
     ) where
 
 import           Prelude              as Import hiding (head, init, last,
@@ -17,6 +18,7 @@ import           Settings.Development as Import
 import           Settings.StaticFiles as Import
 
 import           Forms
+import           Widgets
 
 #if __GLASGOW_HASKELL__ >= 704
 import           Data.Monoid          as Import

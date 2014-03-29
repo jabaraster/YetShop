@@ -1,3 +1,5 @@
+<a href=@{UserCreateR}>ユーザ追加
+
 <ul>
   $forall Entity userId user <- users
     <li>

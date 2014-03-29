@@ -1,3 +1,6 @@
+
+<a href=@{UserIndexR}>ユーザ一覧
+
 <form #form method=post enctype=#{formEnctype}>
     ^{formWidget}
     <input type=submit>
