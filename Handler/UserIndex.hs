@@ -6,7 +6,7 @@ import Import
 
 getUserIndexR :: Handler Html
 getUserIndexR = do
-        users <- runDB $ selectList [] []
+        users <- runDB $ selectList [] [Asc UserIdent]
         defaultLayout $ do
           setTitle "ユーザ一覧"
           $(widgetFile "user-list")

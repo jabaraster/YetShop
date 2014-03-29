@@ -1,3 +1,5 @@
+<a href=@{UserIndexR}>ユーザ一覧
+
 <h1>_{MsgHello}
 
 <ol>
